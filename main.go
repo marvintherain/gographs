@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 const maxv = 1000
 
@@ -34,12 +37,18 @@ func initializegraph(directed bool) *graph {
 }
 
 func readgraph(g *graph, directed bool) {
+	// number of edges
 	var m int
+	// vertices in edge (x,y)
 	var x, y int
 
+	fmt.Println("no. of vertices (nodes) | no. of edges")
 	fmt.Scanf("%d %d", &g.nvertices, &m)
+	fmt.Println("no. of vertices (nodes) set to: " + strconv.Itoa(g.nvertices))
+	fmt.Println("no. of edges set to: " + strconv.Itoa(m))
 
 	for i := 1; i <= m; i++ {
+		fmt.Println("edge no.: " + strconv.Itoa(i))
 		fmt.Scanf("%d %d", &x, &y)
 		insertedge(g, x, y, directed)
 
